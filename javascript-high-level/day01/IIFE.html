@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<!-- 
+    1.理解
+      全称: Immediately-Invoked Function Expression
+
+    2.作用: 
+        隐藏实现  不会污染外部(全局)命名空间
+        
+
+   -->
+		<script>
+			(function () {
+				var a = 3;
+				console.log(a + 3);
+			})();
+
+			console.log("---------------------------------");
+			(function () {
+				var a = 1;
+				function test() {
+					console.log(++a);
+				}
+				window.$ = function () {  //向外暴露一个全局函数
+					return {
+						test: test,
+					};
+				};
+			})();
+			window.$().test();  //$是一个函数  $执行后返回的是一个全局函数
+		</script>
+	</body>
+</html>

@@ -9,8 +9,6 @@ const service = axios.create({
 });
 
 service.interceptors.request.use((config)=>{
-  console.log("===========config===========");
-  console.log(config);
   config.data = Object.assign({},config.data,{
     // authToken:window.localStorage.getItem('authToken')
     authToken:'dfsfdsdfsdfsddf'
@@ -32,4 +30,10 @@ export const getArticles = (offset=0,limited=10) => {
     offset,
     limited
   });
+}
+
+//通过id删除文章
+
+export const deleteArticle = (id) => {
+  return service.post(`/api/v1/articleDelete/${id}`)
 }

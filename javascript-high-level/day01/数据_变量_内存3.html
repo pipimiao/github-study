@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!-- 
+    两个引用变量指向同一个对象
+   -->
+
+  <script>
+    var obj1 = {name:'Tom'};
+    var obj2 = obj1;
+    obj1.name = 'Jack';
+    console.log(obj2.name); //jack
+  </script>
+</body>
+</html>
