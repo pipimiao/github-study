@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!-- 
+    1.原型链(看图)
+    访问一个对象的属性时，
+    先在自身属性中查找，找到返回
+    如果没有，再沿着__proto__这条链往上查找，找到返回
+    如果最终没有找到，返回undefined
+
+    2.构造函数/原型/实体对象的关系(图解)
+    2.构造函数/原型/实体对象的关系2(图解)
+   -->
+
+  <script>
+    function Fn(){
+      this.test1 = function(){
+        console.log('test1()')
+      }
+    }
+
+    Fn.prototype.test2 = function(){
+      console.log('test2()')
+    }
+
+    var fn = new Fn();
+    fn.test1();
+    fn.test2();
+    console.log(fn.toString());
+    // fn.test3();
+
+    var fn1 = function(){}
+    var fn2 = function(){}
+
+    console.log(fn1.__proto__===fn2.__proto__)
+    console.log(fn1.__proto__===Function.prototype);
+    console.log(fn2.__proto__)
+    // console.log(new Function())
+    /*
+      1.函数的显示原型指向的对象:  默认是空Object实例对象 （但Object不满足）
+
+    */
+   var Person = function(){
+
+   }
+   console.log(new Person());
+  </script>
+</body>
+</html>

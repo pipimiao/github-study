@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!-- 
+    1.函数的prototype属性(图)
+      每个函数都有一个prototype属性，它默认指向一个object空对象(即：原型对象)
+      原型对象中有一个属性constructor，它指向函数对象
+
+    2.给原型对象添加属性(一般都是方法)
+      作用: 函数的所有示例对象自动拥有原型中的属性(方法)
+
+   -->
+  <script>
+    console.log(Date.prototype,typeof Date.prototype);
+
+    function test(){
+
+    }
+    console.log(test.prototype);
+
+    console.log(Date.prototype.constructor === Date);
+
+    function Person(name,age){
+      this.name = name;
+      this.age = age;
+    }
+
+    Person.prototype.test = function(){
+      console.log("Person test function");
+    }
+    console.log("=====================");
+    console.log(Person)
+    console.log(new Person("jack",12));
+  </script>
+</body>
+</html>
